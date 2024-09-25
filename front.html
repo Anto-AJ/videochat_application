@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Call App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+    input[type="text"] {
+        width: 60%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Create or Join a Classroom</h2>
+    <form id="classroomForm">
+        <input type="text" id="className" placeholder="Enter Classroom Name" required>
+        <button type="submit">Create Classroom</button>
+    </form>
+    <button id="showRoomsBtn">Show Existing Classrooms</button>
+    <button id="startBtn">Start</button>
+    <div id="existingRooms" style="display: none;">
+        <h3>Existing Classrooms</h3>
+        <ul id="roomList"></ul>
+    </div>
+</div>
+
+<script>
+    // Simulated list of existing room names
+    var existingRooms = ["chat", "test", "proj"];
+
+    // Function to display existing room names
+    function showExistingRooms() {
+        document.getElementById("existingRooms").style.display = "block";
+        var roomList = document.getElementById("roomList");
+        roomList.innerHTML = "";
+        existingRooms.forEach(function(roomName) {
+            var listItem = document.createElement("li");
+            listItem.textContent = roomName;
+            roomList.appendChild(listItem);
+        });
+    }
+
+    document.getElementById("showRoomsBtn").addEventListener("click", showExistingRooms);
+
+    document.getElementById("classroomForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var className = document.getElementById("className").value;
+        if (existingRooms.includes(className)) {
+            alert("Classroom with the same name already exists!");
+        } else {
+            // Perform further actions with the classroom name, such as creating a new room
+            console.log("Classroom Name:", className);
+            alert("Classroom Name: " + className);
+            existingRooms.push(className); // Add the new room to the list of existing rooms
+            // Reset the form after successful submission
+            document.getElementById("className").value = "";
+        }
+    });
+
+    document.getElementById("startBtn").addEventListener("click", function() {
+        window.location.href = "index.html"; // Redirect to index.html
+    });
+</script>
+</body>
+</html>
+
+
+ monday - morning pongal  afternoon pulikolambu  night idli or poori with mutton
+ tuesday - morning onion dosa  afternoon paruppu saatham  night parotta with  chicken
+ wenesday - morning  bread  jam butter afternoon mutton biriyani night chappathi with kuruma
+ thursday -  morning poori kelangu  afternoon thayirsaatham thakkalisaatham pulisaatham  night  dosa sambar
+ friday - morning idli sambar afternoon sambarsaatham  night  kothu chappathi
+ saturday - morning  muttadosa  afternoon   fishcurry vnight friedrice
+ sunday - morning dosa afternoon chicken biriyani  night  sambarsaatham
+ aprm afternoon eppavum ethathu juice irukkum ..........paayasam , rosemilk , badam milk , buttermilk , sarbath , lemon juice ippdi ethathu irukkum

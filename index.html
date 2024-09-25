@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily.co Video Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="call-frame"></div>
+
+    <script src="https://unpkg.com/@daily-co/daily-js"></script>
+    <script>
+        const callFrame = window.DailyIframe.createFrame();
+        callFrame.join({ url:'https://go-exam.daily.co/fslab' })
+            .then(() => {
+                console.log('Successfully joined the meeting');
+            })
+            .catch(error => {
+                console.error('Error joining the meeting:', error);
+            });
+    </script>
+</body>
+</html>
